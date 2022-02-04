@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require('cors')
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
@@ -21,6 +22,7 @@ mongoose
     .then(() => console.log("DB Connected"));
 
 // middlewares
+app.use(cors())
 app.use(morgan("dev"));
 app.use(bodyParser.json());
 app.use(cookieParser());
